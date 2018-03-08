@@ -1,0 +1,35 @@
+Tanagaram
+
+Narrative
+
+Pete has tasked us with creating the game Tanagram. 
+Tanagram is an abstract puzzle game where you are given cut out shapes of variant sizes and transformations of squares, rectangles and triangles.
+Using these primitive shapes you must fit all of the objects into an empty slot of a more complex shape. 
+The player win the game when they correctly fit all pieces into the complex empty slot.
+There is usually only one way to solve a tanagram puzzle, with incorrect solutions ending up preventing remaining objects from being inserted into the complex shape.
+
+When playing Pete's version there is no display to the player of a victory therefore they must decide on their own if they are correct. There is however a  cheat/help/guide button(whichever way a player may view it) to check if their answer is correct.
+
+We used the keyboard to select objects to move around the screen and rotate them freely. 
+We had visual cue of which shape was currently under our control by the colour of the object when selecting one from the keyboard menu.
+
+
+
+Inner Workings
+
+The use of Matrices 3x3 will be used for calculations of rotations and movement and possibly for set up of shapes of objects such as triangles for storing their point geometry coordinates.
+
+Movement will be handled by using the addition and subtraction operators or matrices. 
+Rotation will be handled by using R3 Matrices rotation around the z-axis.
+The reason for rotating around the z-axis is down to the fact we are looking at the game with a flat perspective where the player can manipulate an objects x and y values. If we use rotation of a 2D object in a 3D plane on it's z-axis then it should rotate from the centre, though at this point in time is just a guess for the rotations origin for the pivot. 
+
+
+For selecting the objects I believe there to be a Boolean used possibly with a loop of the objects stored in an array manually.
+
+There would be a static variable for movement speed and rotation/turn speed that all objects would share or possibly a global variable.
+
+Shapes will either be created with the 3x3 matrices or we will use the  sfml graphics library. Though I do believe using the 3x3 matrices for storing and getting the points of a line is the correct way to go.
+
+For shapes that are the same but different in size it would be possible to create an array of these with a for loop and setting the scale from within the for loop at the beginning during construction. 
+
+For extra functionality I may add in a victory screen just to signal to the player that they are done. For this I would check with some form of overlapping detection. I will also attempt to add in snapping to prevent spill over using if else statements and collision.
